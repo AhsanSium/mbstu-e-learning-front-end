@@ -36,28 +36,28 @@ class ServiceGridSlider extends Component {
         img: "service1.jpg",
         serviceTitle: "React - The Complete Guide (incl Hooks, Redux)",
         serviceExcerpt:
-          "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+          "This course will teach you React.js in a practice-oriented way, using all the latest patterns and best practices.",
         serviceUrl: "service-details-left-sidebar"
       },
       {
         img: "service2.jpg",
         serviceTitle: "The Complete React Native Course",
         serviceExcerpt:
-          "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+          "This course will get you up and running with React Native quickly, and teach you the core knowledge you need to deeply understand.",
         serviceUrl: "service-details-left-sidebar"
       },
       {
         img: "service3.jpg",
         serviceTitle: "JavaScript: Understanding the Weird Parts",
         serviceExcerpt:
-          "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+          "This course is about understanding Javascript concepts behind it, and how it works. Then writing code. That's the proper way to learn code.",
         serviceUrl: "service-details-left-sidebar"
       },
       {
         img: "service1.jpg",
         serviceTitle: "MongoDB - The Complete Developer Guide",
         serviceExcerpt:
-          "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+          "Join this bestselling MongoDB course to learn all about this extremely popular database and query language.",
         serviceUrl: "service-details-left-sidebar"
       }
     ];
@@ -104,7 +104,7 @@ class ServiceGridSlider extends Component {
               <div className="col-lg-12">
                 <div className="section-title-area text-center">
                   <h2 className="section-title mb-0">
-                    Latest Tutorials <span className="title-icon" />
+                    Latest Tutorials 
                   </h2>
                 </div>
               </div>

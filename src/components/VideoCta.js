@@ -26,9 +26,7 @@ class VideoCta extends Component {
                     Best E-learning Portal
                   </h3>
                   <p className="video-cta-content__text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim
+                  Want to change your life? Fully embrace the backbone of the digital revolution and learn to from Us! MBSTU E-learning offers a great range of free online courses which teach anyone, even complete beginners in a fully interactive environment.
                   </p>
                   <a
                     href={`${process.env.PUBLIC_URL}/contact-us`}

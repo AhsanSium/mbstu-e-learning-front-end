@@ -234,7 +234,7 @@ class NavBar extends Component {
         </li>
         <li>
           <Link className="nav-link" to="/login/instructor">
-            Teach On Knowhow
+            Teach On MBSTU E-learning
           </Link>
         </li>
       </React.Fragment>
@@ -264,7 +264,7 @@ class NavBar extends Component {
                                 alt=""
                                 className="sticky-logo img-fluid"
                               />
-                              <h3 className="ml-2">MBSTU E Learning</h3>
+                              <h3 className="ml-2">MBSTU E-LEARNING</h3>
                             </div>
                           </a>
 

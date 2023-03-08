@@ -7,9 +7,9 @@ class TeamMemberGrid extends Component {
     let data = [
       {
         profileImage: "team-1.jpg",
-        profileTitle: "Ashwini Soni",
+        profileTitle: "Tanvir Ahmed",
         profileDesignation: "Team Member 1",
-        profileEmail: "info@example.com",
+        profileEmail: "tanvir19ahmed@gmail.com",
         socialLinks: {
           facebook: "//www.facebook.com",
           twitter: "//www.twitter.com",
@@ -19,33 +19,9 @@ class TeamMemberGrid extends Component {
       },
       {
         profileImage: "team-2.jpg",
-        profileTitle: "Rutva Patel",
+        profileTitle: "Ahsan Sium",
         profileDesignation: "Team Member 2",
-        profileEmail: "info@example.com",
-        socialLinks: {
-          facebook: "//www.facebook.com",
-          twitter: "//www.twitter.com",
-          linkedin: "//www.linkedin.com",
-          googlePlus: "//plus.google.com"
-        }
-      },
-      {
-        profileImage: "team-3.jpg",
-        profileTitle: "Amandeep Singh",
-        profileDesignation: "Team Member 3",
-        profileEmail: "info@example.com",
-        socialLinks: {
-          facebook: "//www.facebook.com",
-          twitter: "//www.twitter.com",
-          linkedin: "//www.linkedin.com",
-          googlePlus: "//plus.google.com"
-        }
-      },
-      {
-        profileImage: "team-4.jpg",
-        profileTitle: "Apurva Savaj",
-        profileDesignation: "Team Member 4",
-        profileEmail: "info@example.com",
+        profileEmail: "ahsansium28@gmail.com",
         socialLinks: {
           facebook: "//www.facebook.com",
           twitter: "//www.twitter.com",
@@ -58,7 +34,7 @@ class TeamMemberGrid extends Component {
     let Datalist = data.map((val, i) => {
       return (
         <div
-          className="col-lg-3 col-sm-6 col-12 section-space--bottom--30"
+          className="col-lg-6 col-sm-6 col-12 section-space--bottom--30"
           key={i}
         >
           <div className="team">
@@ -84,8 +60,8 @@ class TeamMemberGrid extends Component {
               <div className="col-lg-12">
                 <div className="section-title-area text-center">
                   <h2 className="section-title section-space--bottom--50">
-                    Our Team <span className="title-icon" />
-                  </h2>
+                    Our Team 
+                    </h2>
                 </div>
               </div>
             </div>

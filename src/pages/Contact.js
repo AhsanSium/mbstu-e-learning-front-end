@@ -47,15 +47,15 @@ class Contact extends Component{
                             <ul>
                                 <li>
                                     <span className="icon"><i className="ion-android-map" /></span>
-                                    <span className="text"><span>Stock Building, 125 Main Street 1st Lane, San Francisco, USA</span></span>
+                                    <span className="text"><span>Santosh, Tangail, 1902, Bangladesh</span></span>
                                 </li>
                                 <li>
                                     <span className="icon"><i className="ion-ios-telephone-outline" /></span>
-                                    <span className="text"><a href="tel:1234567890">(001) 24568 365 987</a><a href="tel:1234567890">(001) 65897 569 784</a></span>
+                                    <span className="text"><a href="tel:1234567890">+880 1611114166</a><a href="tel:1234567890">+880 1796264836</a></span>
                                 </li>
                                 <li>
                                     <span className="icon"><i className="ion-ios-email-outline" /></span>
-                                    <span className="text"><a href="mailto:info@example.com">info@example.com</a><a href="mailto:info@example.com">info@example.com</a></span>
+                                    <span className="text"><a href="mailto:info@example.com">tanvir19ahmed@gmail.com</a><a href="mailto:info@example.com">ahsansium28@gmail.com</a></span>
                                 </li>
                             </ul>
                         </div>

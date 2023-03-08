@@ -21,24 +21,24 @@ class TestimonialSlider extends Component {
     let data = [
       {
         testimonialImage: "1.jpg",
-        testimonialName: "Apurva Savaj",
+        testimonialName: "Ahsan Sium",
         testimonialDesignation: "Founder",
         testimonialText:
-          "Lorem ipsum dolor sit amet, consectetur adipisi elit sed do eiusmod tempor incididu ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+          "If you are looking to commit to more than just an individual course, then MBSTU E-learning is the best option for you."
       },
       {
         testimonialImage: "3.jpg",
-        testimonialName: "Aman Singh",
+        testimonialName: "Tanvir Ahmed",
         testimonialDesignation: "Engineer",
         testimonialText:
-          "Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco Lorem ipsum dolor sit amet."
+          "We’ve got the solution: world-class training and development programs developed by top universities and companies."
       },
       {
         testimonialImage: "2.jpg",
-        testimonialName: "Aananya Pandey",
+        testimonialName: "Zakaria Masud",
         testimonialDesignation: "CEO",
         testimonialText:
-          "consectetur adipisi elit sed do eiusmod tempor incididu ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+          "No matter what you are looking to learn, or gain confidence in, MBSTU E-learning has something for you."
       }
     ];
 
