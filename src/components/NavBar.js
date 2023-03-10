@@ -4,15 +4,6 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
 
-const users = {
-  role: "student"
-};
-
-const displayProp = 'none';
-
-const flexProp = 'flex';
-
-
 class NavBar extends Component {
   onLogoutClick(e) {
     e.preventDefault();
@@ -21,27 +12,24 @@ class NavBar extends Component {
     // window.location.href = "/";
   }
 
-
   state = {
     displayProp: "none",
     flexProp: "row"
   };
-  // classToggle = () => {
-  //   console.log("hello");
-  //   const { displayProp, flexProp } = this.state;
-  //   this.setState({
-  //     displayProp: displayProp === "none" ? "flex" : "none",
-  //     flexProp: flexProp === "row" ? "column" : "row"
-  //   });
-  // };
-
-
+  classToggle = () => {
+    console.log("hello");
+    const { displayProp, flexProp } = this.state;
+    this.setState({
+      displayProp: displayProp === "none" ? "flex" : "none",
+      flexProp: flexProp === "row" ? "column" : "row"
+    });
+  };
 
   render() {
-    // const { isAuthenticated, users } = this.props.auth;
-    //localStorage.setItem("userid", JSON.stringify(users.id));
-    //localStorage.setItem("userRole", JSON.stringify(users.role));
-    // const { displayProp, flexProp } = this.state;
+    const { isAuthenticated, users } = this.props.auth;
+    localStorage.setItem("userid", JSON.stringify(users.id));
+    localStorage.setItem("userRole", JSON.stringify(users.role));
+    const { displayProp, flexProp } = this.state;
 
     if (users.role === "admin") {
       return (
@@ -66,9 +54,9 @@ class NavBar extends Component {
                                 <img
                                   src="/assets/img/logo/logonew.png"
                                   alt=""
-                                  className="sticky-logo img-fluid"
+                                  className="sticky-logo img-fluid mr=2"
                                 />
-                                <h3>MBSTU E LEARNING</h3>
+                                <h3 className="ml-1" >MBSTU E-Learning</h3>
                               </div>
                             </a>
 
@@ -106,7 +94,7 @@ class NavBar extends Component {
                               </li>
                               <li className="inactive">
                                 <a
-                                  // onClick={this.onLogoutClick.bind(this)}
+                                  onClick={this.onLogoutClick.bind(this)}
                                   className="nav-link"
                                 >
                                   <img
@@ -159,7 +147,7 @@ class NavBar extends Component {
           <li className="inactive">
             <a
               href=""
-              //onClick={this.onLogoutClick.bind(this)}
+              onClick={this.onLogoutClick.bind(this)}
               className="nav-link"
             >
               <img
@@ -210,7 +198,7 @@ class NavBar extends Component {
           <li>
             <a
               href=""
-              //onClick={this.onLogoutClick.bind(this)}
+              onClick={this.onLogoutClick.bind(this)}
               className="nav-link"
             >
               <img
@@ -234,7 +222,7 @@ class NavBar extends Component {
         </li>
         <li>
           <Link className="nav-link" to="/login/instructor">
-            Teach On MBSTU E-learning
+            Teach On MBSTU E-Learning
           </Link>
         </li>
       </React.Fragment>
@@ -264,14 +252,14 @@ class NavBar extends Component {
                                 alt=""
                                 className="sticky-logo img-fluid"
                               />
-                              <h3 className="ml-2">MBSTU E-LEARNING</h3>
+                              <h3>MBSTU E-Learning</h3>
                             </div>
                           </a>
 
                           <ul id="main-nav-ul">
-                            <li style={{ cursor: "pointer" }} >
+                            <li>
                               <a href={`${process.env.PUBLIC_URL}/home-two`}>
-                                HOME PAGE
+                                HOME
                               </a>
                             </li>
                             <li>
@@ -280,18 +268,12 @@ class NavBar extends Component {
                               </a>
                             </li>
 
-                            <li>
-                              <a href={`${process.env.PUBLIC_URL}/contact-us`}>
-                                CONTACT
-                              </a>
-                            </li>
-
-                            {/* {isAuthenticated ? authLinks : guestLinks} */}
+                            {isAuthenticated ? authLinks : guestLinks}
                           </ul>
 
                           <div
                             className="Navbar__Link Navbar__Link-toggle"
-                          //onClick={this.classToggle}
+                            onClick={this.classToggle}
                           >
                             <i className="fas fa-bars" />
                           </div>
@@ -334,7 +316,7 @@ class NavBar extends Component {
                               </a>
                             </li>
 
-                            {/* {isAuthenticated ? authLinks : guestLinks} */}
+                            {isAuthenticated ? authLinks : guestLinks}
                           </ul>
                         </nav>
                       </div>
@@ -352,18 +334,16 @@ class NavBar extends Component {
   }
 }
 
-// NavBar.propTypes = {
-//   logoutUser: PropTypes.func.isRequired,
-//   auth: PropTypes.object.isRequired
-// };
+NavBar.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
 
-// const mapStateToProps = state => ({
-//   auth: state.auth
-// });
+const mapStateToProps = state => ({
+  auth: state.auth
+});
 
-// export default connect(
-//   mapStateToProps,
-//   { logoutUser }
-// )(NavBar);
-
-export default NavBar;
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(NavBar);

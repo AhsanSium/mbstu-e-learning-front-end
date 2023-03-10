@@ -1,7 +1,6 @@
-
 // project specific variables
 
-$theme-color--default: #f0542d;
+$theme-color--default: #060047;
 $theme-color--default--light: darken($theme-color--default, 10%);
 $theme-color--red1: #DE2021;
 $theme-color--red2: #D0021B;
@@ -17,7 +16,7 @@ $theme-color--black3: #05103B;
 $theme-color--black4: #313131;
 
 
-$transition--cubic:  all .3s cubic-bezier(.645,.045,.355,1);
+$transition--cubic: all .3s cubic-bezier(.645, .045, .355, 1);
 
 // Font Family
 $font-family-name: 'Roboto', sans-serif;
@@ -43,13 +42,13 @@ $heading-font-weight: 700;
 
 
 // Other Colors
-$primary:       #004395;
-$secondary:     #f9c322;
-$success:       #28a745;
-$info:          #17a2b8;
-$warning:       #ffc107;
-$danger:        #dc3545;
-$light:         #f8f9fa;
+$primary: #004395;
+$secondary: #f9c322;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
 
 // Social Color
 $android: #7AC157;
@@ -115,7 +114,7 @@ $youtube: #FE0000;
 // Responsive Variables
 $laptop-device : 'only screen and (min-width: 1200px) and (max-width: 1499px)';
 $desktop-device : 'only screen and (min-width: 992px) and (max-width: 1199px)';
-$tablet-device:'only screen and (min-width: 768px) and (max-width: 991px)';
-$large-mobile:'only screen and (max-width: 767px)';
+$tablet-device: 'only screen and (min-width: 768px) and (max-width: 991px)';
+$large-mobile: 'only screen and (max-width: 767px)';
 $small-mobile: 'only screen and (max-width: 575px)';
 $extra-small-mobile: 'only screen and (max-width: 479px)';
