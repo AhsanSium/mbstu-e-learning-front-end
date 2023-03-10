@@ -32,28 +32,28 @@ class ServiceTabExample extends Component {
         bgUrl: "service-tab1.jpg",
         contentTitle: "Modern React with Redux",
         contentDesc:
-          "Lorem ipsum dolor sit amet, consectet adipisicin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "This course will teach you React.js in a practice-oriented way, using  Redux system and all the latest patterns and best practices.",
         serviceLink: "service-details-left-sidebar"
       },
       {
         bgUrl: "service-tab1.jpg",
         contentTitle: "The Complete React Native Course",
         contentDesc:
-          "Lorem ipsum dolor sit amet, consectet adipisicin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "This course will get you up and running with React Native quickly, and teach you the core knowledge you need to deeply understand.",
         serviceLink: "service-details-left-sidebar"
       },
       {
         bgUrl: "service-tab1.jpg",
         contentTitle: "JavaScript: Understanding the Weird Parts",
         contentDesc:
-          "Lorem ipsum dolor sit amet, consectet adipisicin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "This course is about understanding Javascript concepts behind it, and how it works. Then writing code. That's the proper way to learn code.",
         serviceLink: "service-details-left-sidebar"
       },
       {
         bgUrl: "service-tab1.jpg",
         contentTitle: "MongoDB - The Complete Developer Guide",
         contentDesc:
-          "Lorem ipsum dolor sit amet, consectet adipisicin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "Join this bestselling MongoDB course to learn all about this extremely popular database and query language from the ground up, in great detail",
         serviceLink: "service-details-left-sidebar"
       }
     ];
@@ -91,7 +91,7 @@ class ServiceTabExample extends Component {
               <div className="col-lg-12">
                 <div className="section-title-area text-center">
                   <h2 className="section-title section-space--bottom--50">
-                    Most Viewed Courses <span className="title-icon" />
+                    Most Viewed Courses 
                   </h2>
                 </div>
               </div>

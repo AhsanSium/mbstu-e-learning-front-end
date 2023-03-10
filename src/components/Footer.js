@@ -22,14 +22,12 @@ class Footer extends Component {
                                 alt=""
                                 className="sticky-logo img-fluid"
                               />
-                              <h3>KnowHow</h3>
+                              <h3>MBSTU E-learning</h3>
                             </div>
                           </a>
                         </div>
                         <div className="footer-desc">
-                          Lorem ipsum dolor sit amet consect adipisici elit, sed
-                          do eiusmod tempor incididuk ut labore et dolore magna
-                          aliqua Ut enim
+                        MBSTU E-learning has helped hundreds of students level up and level set their technical skills.
                         </div>
                       </div>
                     </div>
@@ -95,17 +93,17 @@ class Footer extends Component {
                         <h4 className="footer-widget__title">CONTACT US</h4>
                         <div className="footer-widget__content">
                           <p className="address">
-                            Your address goes here, street Crossroad123.
+                          Santosh, Tangail, 1902, Bangladesh.
                           </p>
                           <ul className="contact-details">
                             <li>
-                              <span>P:</span>99 55 66 88 526
+                              <span>Phone:</span>+880 1611114166
                             </li>
                             <li>
-                              <span>F:</span>55 44 77 62
+                              <span>Phone:</span>+8801796264836
                             </li>
                             <li>
-                              <span>E:</span>cons@email.com
+                              <span>E:</span>tanvir19ahmed@gmail.com
                             </li>
                           </ul>
                         </div>
@@ -118,7 +116,7 @@ class Footer extends Component {
           </div>
           <div className="footer-copyright-wrapper">
             <div className="footer-copyright text-center">
-              Copyright © 2019. All right reserved
+              Copyright © 2023. All right reserved
             </div>
           </div>
         </div>
