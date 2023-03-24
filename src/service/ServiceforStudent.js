@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import BrandLogoSlider from "../components/BrandLogoSlider";
 import Footer from "../components/Footer";
 import MobileMenu from "../components/MobileMenu";
+import logoImage from "../../public/assets/img/logo/logoland.png"
 class Services extends Component {
   state = {
     data: []
@@ -14,10 +15,10 @@ class Services extends Component {
     const response = await axios
       .get(
         "http://localhost:5000/enrollmentbystudent?id=" +
-          this.props.match.params.id
+        this.props.match.params.id
       )
       .then(result => {
-        console.log(result.data[0]);
+        console.log(" RESULT ", result.data[0]);
         return result;
       });
 
@@ -45,7 +46,7 @@ class Services extends Component {
                   }
                 >
                   <img
-                    src={val.course.courseImage}
+                    src={val.course.courseImage ? val.course.courseImage : logoImage}
                     className="img-fluid"
                     alt="Service Grid"
                   />

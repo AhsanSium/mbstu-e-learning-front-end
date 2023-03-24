@@ -83,43 +83,76 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
-
-        <BrowserRouter basename={"/"} >
+        <BrowserRouter basename={"/"}>
           <Switch>
             <Route
               exact
               path={`${process.env.PUBLIC_URL}/`}
               component={HomeTwo}
             />
+
             <Route
               exact
               path={`${process.env.PUBLIC_URL}/home-two`}
               component={HomeTwo}
             />
+
             <Route
               exact
               path={`${process.env.PUBLIC_URL}/about-us`}
               component={About}
             />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/servicesforstudent/:id`}
+              component={Servicesforstudent}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/services/:id`}
+              component={ServicesForInstructor}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/services`}
+              component={Services}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/service-details-left-sidebar`}
+              component={ServiceDetailsLeftSidebar}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/projects`}
+              component={Projects}
+            />
 
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/project-details`}
+              component={ProjectDetails}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/blog-left-sidebar`}
+              component={BlogLeftSidebar}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/addcourse/:id`}
+              component={AddCourse}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/blog-details-left-sidebar/:id`}
+              component={BlogDetailsLeftSidebar}
+            />
             <Route
               exact
               path={`${process.env.PUBLIC_URL}/contact-us`}
               component={Contact}
             />
-
-            <Route
-              exact
-              path={`${process.env.PUBLIC_URL}/ShowCourseList`}
-              component={ShowCourseList}
-            />
-
-            <Route
-              exact
-              path={`${process.env.PUBLIC_URL}/forgot-password`}
-              component={Forgot}
-            />
-
             <Route
               exact
               path={`${process.env.PUBLIC_URL}/login/:role`}
@@ -130,31 +163,113 @@ function App() {
               path={`${process.env.PUBLIC_URL}/register/:role`}
               component={Register}
             />
-
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/allusers`}
+              component={UserList}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/users/create`}
+              component={CreateUser}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/allusers/edit/:id`}
+              component={EditUser}
+            />
             <PrivateRoute
               exact
               path={`${process.env.PUBLIC_URL}/dashboard`}
               component={Dashboard}
             />
-
-            <PrivateRoute
+            <Route
               exact
-              path={`${process.env.PUBLIC_URL}/services`}
-              component={Services}
+              path={`${process.env.PUBLIC_URL}/createEnrollAdmin`}
+              component={CreateEnrollAdmin}
+            />
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/EnrollmentList`}
+              component={EnrollmentList}
+            />
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/ShowCourseList`}
+              component={ShowCourseList}
+            />
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/ShowCategoryList`}
+              component={ShowCategoryList}
+            />
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/ShowCourseList/edit/:id`}
+              component={EditCourseList}
+            />
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/ShowCategoryList/edit/:id`}
+              component={EditCategoryList}
+            />
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/CreateCategoryAdmin`}
+              component={CreateCategoryAdmin}
+            />
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/forgot-password`}
+              component={Forgot}
+            />
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/add-lecture/:id`}
+              component={AddLecture}
             />
             <PrivateRoute
               exact
-              path={`${process.env.PUBLIC_URL}/addcourse/:id`}
-              component={AddCourse}
+              path={`${process.env.PUBLIC_URL}/404`}
+              component={PageNotFound}
             />
-
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/finaldashboard`}
+              component={FinalDashboard}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/create-profile`}
+              component={CreateProfile}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/edit-profile`}
+              component={EditProfile}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/add-experience`}
+              component={AddExperience}
+            />
 
             <Route
               exact
-              path={`${process.env.PUBLIC_URL}/*`}
-              component={NoMAtch}
+              path={`${process.env.PUBLIC_URL}/finalprofiles`}
+              component={FinalProfiles}
             />
-
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/profile/:handle`}
+              component={Profile}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/add-education`}
+              component={AddEducation}
+            />
+            <PrivateRoute component={NoMAtch} />
           </Switch>
         </BrowserRouter>
       </Provider>

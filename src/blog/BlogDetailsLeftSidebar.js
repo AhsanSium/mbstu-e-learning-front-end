@@ -70,16 +70,16 @@ class BlogDetailsLeftSidebar extends Component {
       .then(result => {
         console.log(
           "http://localhost:5000/checkenrollment?id=" +
-            this.state.user +
-            "&&courseid=" +
-            this.props.match.params.id
+          this.state.user +
+          "&&courseid=" +
+          this.props.match.params.id
         );
         const responseEnrolled = axios
           .get(
             "http://localhost:5000/checkenrollment?id=" +
-              this.state.user +
-              "&&courseid=" +
-              this.props.match.params.id
+            this.state.user +
+            "&&courseid=" +
+            this.props.match.params.id
           )
           .then(result => {
             if (result.data != undefined) {

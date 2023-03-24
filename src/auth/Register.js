@@ -40,13 +40,13 @@ class Register extends Component {
       role: this.props.match.params.role
     };
 
-    // console.log(newUser);
+    console.log(newUser);
 
     axios
       .post("http://localhost:5000/users/register", newUser)
       .then(res => console.log(res.data))
       .catch(err => this.setState({ errors: err.response.data }));
-    this.props.history.push("/login/" + this.props.match.params.role)
+    //this.props.history.push("/login/" + this.props.match.params.role)
     //call registerUser action and pass user data in argument
     // this.props.registerUser(newUser, this.props.history);
   }

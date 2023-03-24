@@ -31,19 +31,19 @@ export default class Upload extends Component {
     axios
       .get(
         "http://localhost:5000/coursebyinstructor?id=" +
-          this.props.match.params.id
+        this.props.match.params.id
       )
       .then(response => {
         console.log(this.props.match.params.id);
         this.setState({ Courses: response.data });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
 
   CourseList() {
-    return this.state.Courses.map(function(currentTodo, i) {
+    return this.state.Courses.map(function (currentTodo, i) {
       //  console.log(currentTodo.categoryName)
       return <ShowCourse todo={currentTodo} key={i} />;
     });
@@ -145,7 +145,7 @@ export default class Upload extends Component {
       data.append("videoLink", this.state.youtubelink);
     }
 
-    console.log(data);
+    console.log(" Upload Data ", data);
     axios
       .post("http://localhost:5000/lectures/localupload", data, {
         onUploadProgress: ProgressEvent => {
@@ -163,7 +163,7 @@ export default class Upload extends Component {
         toast.error("upload fail");
       });
     setTimeout(
-      function() {
+      function () {
         window.location.reload();
       }.bind(this),
       1300

@@ -7,11 +7,13 @@ const VideoDetail = ({ video }) => {
 
   //const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
 
+  //console.log("VIDEO URL",)
+
   return (
     <div>
       <div className="cta-video-image">
         <div className="ui embed">
-          <iframe src= {video.videoLink} title="videoplayer" />
+          <iframe src={video.videoLink} title="videoplayer" />
         </div>
       </div>
     </div>
