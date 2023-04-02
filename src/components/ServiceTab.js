@@ -29,7 +29,7 @@ class ServiceTabExample extends Component {
 
     let serviceTabContentData = [
       {
-        bgUrl: "service-tab1.jpg",
+        bgUrl: "pxfuel.jpg",
         contentTitle: "Modern React with Redux",
         contentDesc:
           "This course will teach you React.js in a practice-oriented way, using  Redux system and all the latest patterns and best practices.",

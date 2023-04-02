@@ -33,28 +33,28 @@ class ServiceGridSlider extends Component {
     };
     let data = [
       {
-        img: "service1.jpg",
+        img: "pxfuel.jpg",
         serviceTitle: "React - The Complete Guide (incl Hooks, Redux)",
         serviceExcerpt:
           "This course will teach you React.js in a practice-oriented way, using all the latest patterns and best practices.",
         serviceUrl: "service-details-left-sidebar"
       },
       {
-        img: "service2.jpg",
+        img: "pxfuel2.jpg",
         serviceTitle: "The Complete React Native Course",
         serviceExcerpt:
           "This course will get you up and running with React Native quickly, and teach you the core knowledge you need to deeply understand.",
         serviceUrl: "service-details-left-sidebar"
       },
       {
-        img: "service3.jpg",
+        img: "pxfuel3.jpg",
         serviceTitle: "JavaScript: Understanding the Weird Parts",
         serviceExcerpt:
           "This course is about understanding Javascript concepts behind it, and how it works. Then writing code. That's the proper way to learn code.",
         serviceUrl: "service-details-left-sidebar"
       },
       {
-        img: "service1.jpg",
+        img: "pxfuel4.jpg",
         serviceTitle: "MongoDB - The Complete Developer Guide",
         serviceExcerpt:
           "Join this bestselling MongoDB course to learn all about this extremely popular database and query language.",

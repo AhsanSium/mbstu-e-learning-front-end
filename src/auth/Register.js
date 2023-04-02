@@ -46,9 +46,9 @@ class Register extends Component {
       .post("http://localhost:5000/users/register", newUser)
       .then(res => console.log(res.data))
       .catch(err => this.setState({ errors: err.response.data }));
-    //this.props.history.push("/login/" + this.props.match.params.role)
+      this.props.history.push("/login/" + this.props.match.params.role)
     //call registerUser action and pass user data in argument
-    // this.props.registerUser(newUser, this.props.history);
+      //this.props.registerUser(newUser, this.props.history);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -221,7 +221,7 @@ class Register extends Component {
                 </div>
                 <div className="col-md-6 d-none d-md-block">
                   <img
-                    src="../assets/img/login_banner.png"
+                    src="../assets/img/pexels-photo-2767814.webp"
                     alt=""
                     className="img-fluid"
                   />

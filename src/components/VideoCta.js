@@ -37,9 +37,9 @@ class VideoCta extends Component {
                 </div>
               </div>
               <div className="col-lg-5 offset-lg-1 col-md-6">
-                <div className="cta-video-image">
+                <div className="cta-video-image ml-5">
                   <img
-                    src="assets/img/slider/sphere.png"
+                    src="assets/img/slider/5ebf0741960659.595ba2377c6da.jpg"
                     height="360px"
                     width="360px"
                     alt="techsphere"

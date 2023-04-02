@@ -160,6 +160,11 @@ function App() {
             />
             <Route
               exact
+              path={`${process.env.PUBLIC_URL}/login`}
+              component={HomeTwo}
+            />
+            <Route
+              exact
               path={`${process.env.PUBLIC_URL}/register/:role`}
               component={Register}
             />

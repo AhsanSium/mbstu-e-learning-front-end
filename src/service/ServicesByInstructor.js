@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import BrandLogoSlider from "../components/BrandLogoSlider";
 import Footer from "../components/Footer";
 import MobileMenu from "../components/MobileMenu";
+import courseImage from "../../public/assets/img/icons/new_course.png";
 class Services extends Component {
   state = {
     data: []
@@ -53,9 +54,10 @@ class Services extends Component {
                   }
                 >
                   <img
-                    src={val.courseImage}
+                    src={val.courseImage ? val.courseImage : courseImage}
                     className="img-fluid"
                     alt="Service Grid"
+                    width={"400px"}
                   />
                 </a>
               </div>

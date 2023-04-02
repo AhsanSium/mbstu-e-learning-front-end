@@ -178,7 +178,7 @@ class Login extends Component {
                 </div>
                 <div className="col-md-6 d-none d-md-block">
                   <img
-                    src="../assets/img/login_banner.png"
+                    src="../assets/img/pexels-photo-2767814.webp"
                     alt=""
                     className="img-fluid"
                   />

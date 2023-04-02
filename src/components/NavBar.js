@@ -98,7 +98,7 @@ class NavBar extends Component {
                                   className="nav-link"
                                 >
                                   <img
-                                    src="https://cdn1.iconfinder.com/data/icons/user-avatars-2/300/04-512.png"
+                                    src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
                                     height="10px"
                                     width="10px"
                                     alt={users.first_name}
@@ -151,7 +151,7 @@ class NavBar extends Component {
               className="nav-link"
             >
               <img
-                src="https://cdn1.iconfinder.com/data/icons/user-avatars-2/300/04-512.png"
+                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
                 alt={users.first_name}
                 style={{ width: "25px", marginRight: "5px" }}
               />{" "}
@@ -202,7 +202,7 @@ class NavBar extends Component {
               className="nav-link"
             >
               <img
-                src="https://cdn1.iconfinder.com/data/icons/user-avatars-2/300/04-512.png"
+                src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
                 alt={users.first_name}
                 style={{ width: "25px", marginRight: "5px" }}
               //  title="You must have a Gravatar connected to your emial to display the image"

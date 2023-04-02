@@ -192,6 +192,7 @@ export default class Upload extends Component {
                       name="course"
                       id="ada"
                       onChange={this.onChangeCourse}
+                      onClick={this.onChangeCourse}
                       value={this.state.course}
                     >
                       {this.CourseList()}

@@ -30,22 +30,22 @@ class HeroSliderOne extends Component {
 
     let data = [
       {
-        bgImg: "crowsel3.png",
-        sliderTitle: "Build Your Dream With Passion",
+        bgImg: "cup-of-coffee-gddd5184ed_1280.jpg",
+        sliderTitle: "Learn your favourite technology with passion",
         sliderSubtitle:
           "Learn, Code and start developing your own beautiful websites at no cost.",
         btnLink: "contact-us"
       },
       {
-        bgImg: "crowsel2.png",
-        sliderTitle: "Build Your Dream With Passion",
+        bgImg: "working-gb4d1d2edb_1280.jpg",
+        sliderTitle: "Knowledge is power, and we're here to help you gain it.",
         sliderSubtitle:
           "Learn, Code and start developing your own beautiful websites at no cost.",
         btnLink: "contact-us"
       },
       {
         bgImg: "crowsel0.png",
-        sliderTitle: "Build Your Dream With Passion",
+        sliderTitle: "Learning made easy, accessible and fun.",
         sliderSubtitle:
           "Learn, Code and start developing your own beautiful websites at no cost.",
         btnLink: "contact-us"
