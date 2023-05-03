@@ -20,9 +20,11 @@ export default class Upload extends Component {
       loaded: 0,
       Courses: [],
       course: "",
-      title: ""
+      title: "",
+      lectureType: ""
     };
     this.onChangeCourse = this.onChangeCourse.bind(this);
+    this.onChangeLectureType = this.onChangeLectureType.bind(this);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeYouTubeLink = this.onChangeYouTubeLink.bind(this);
   }
@@ -52,6 +54,11 @@ export default class Upload extends Component {
   onChangeCourse(e) {
     this.setState({
       course: e.target.value
+    });
+  }
+  onChangeLectureType(e) {
+    this.setState({
+      lectureType: e.target.value
     });
   }
 
@@ -137,6 +144,9 @@ export default class Upload extends Component {
     const data = new FormData();
     data.append("course", this.state.course);
     data.append("title", this.state.title);
+    data.append("lectureType", this.state.lectureType);
+    //var url = URL.createObjectURL(this.state.selectedFile[1]);
+    console.log("URL ", this.state.selectedFile);
     if (this.state.youtubelink == "") {
       for (var x = 0; x < this.state.selectedFile.length; x++) {
         data.append("file", this.state.selectedFile[x]);
@@ -156,10 +166,12 @@ export default class Upload extends Component {
       })
       .then(res => {
         // then print response status
+        console.log(res);
         toast.success("upload success");
       })
       .catch(err => {
         // then print response status
+        console.log(err);
         toast.error("upload fail");
       });
     setTimeout(
@@ -172,6 +184,7 @@ export default class Upload extends Component {
 
   render() {
     var message2 = "you have selected " + this.state.course;
+    var message3 = "you have selected " + this.state.lectureType;
     return (
       <div>
         <NavBar />
@@ -207,6 +220,23 @@ export default class Upload extends Component {
                       value={this.state.title}
                       onChange={this.onChangeTitle}
                     />
+                  </div>
+
+                  <div className="form-group">
+                    <label>Lecture Type </label>
+                    <select
+                      className="form-control"
+                      name="lectureType"
+                      id="lectureType"
+                      onChange={this.onChangeLectureType}
+                      onClick={this.onChangeLectureType}
+                      value={this.state.lectureType}
+                    >
+                      <option selected value="video"> Video </option>
+                      <option value="text">Text</option>
+                      <option value="quiz">Quiz</option>
+                    </select>
+                    <p>{message3}</p>
                   </div>
 
                   <label>Upload Your File </label>
