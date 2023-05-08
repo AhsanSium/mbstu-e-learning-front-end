@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import { Progress } from "reactstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AddQuiz from "./AddQuiz";
 
 const ShowCourse = props => (
   <option key={props.todo.courseName} value={props.todo.courseName}>
@@ -21,7 +22,9 @@ export default class Upload extends Component {
       Courses: [],
       course: "",
       title: "",
-      lectureType: ""
+      lectureType: "",
+      lectureText: "",
+      quiz: {}
     };
     this.onChangeCourse = this.onChangeCourse.bind(this);
     this.onChangeLectureType = this.onChangeLectureType.bind(this);
@@ -137,25 +140,86 @@ export default class Upload extends Component {
       });
     }
   };
-  onClickHandler = () => {
+
+  onLectureChangeHandler = event => {
+    var text = event.target.value;
+    console.log(text);
+    // if return true allow to setState
+    this.setState({
+      lectureText: text
+    });
+  };
+
+
+  onClickHandler = (e) => {
+    e.preventDefault();
     console.log(`Todo course: ${this.state.course}`);
     console.log(`Todo title: ${this.state.title}`);
+
+    if (!this.state.course || !this.state.title || !this.state.lectureType) {
+      toast.error("Please Select Missing Field before submit");
+      return;
+    }
+
+    if (this.state.lectureType === "text") {
+      if (!this.state.lectureText) {
+        toast.error("Please Enter Text before submit");
+        return;
+      }
+    }
+    else if (this.state.lectureType === "video") {
+      if (!this.state.selectedFile) {
+        toast.error("Please Select video before submit");
+        return;
+      }
+    }
+    else if (this.state.lectureType === "quiz") {
+      console.log("Quiz", this.state.quiz);
+      if (!this.state.quiz) {
+        toast.error("Please Enter Quiz before submit");
+        return;
+      }
+    }
 
     const data = new FormData();
     data.append("course", this.state.course);
     data.append("title", this.state.title);
     data.append("lectureType", this.state.lectureType);
+
     //var url = URL.createObjectURL(this.state.selectedFile[1]);
     console.log("URL ", this.state.selectedFile);
-    if (this.state.youtubelink == "") {
+
+
+    if (this.state.youtubelink == "" && this.state.lectureType === "video") {
+      data.append("lectureText", "No need");
+      data.append("quiz", { text: "No need" });
       for (var x = 0; x < this.state.selectedFile.length; x++) {
         data.append("file", this.state.selectedFile[x]);
       }
-    } else {
+    }
+    else if (this.state.lectureType === "video") {
+      data.append("lectureText", "No need");
+      data.append("quiz", { text: "No need" });
       data.append("videoLink", this.state.youtubelink);
     }
+    else if (this.state.lectureType === "quiz") {
+      data.append("videoLink", "No need");
+      data.append("lectureText", "No need");
+      console.log("QUIZ ", this.state.quiz);
+      data.append("quiz", JSON.stringify(this.state.quiz));
+    }
+    else {
+      data.append("videoLink", "No need");
+      data.append("quiz", { text: "No need" });
+      data.append("lectureText", this.state.lectureText);
+    }
 
-    console.log(" Upload Data ", data);
+    //console.log(" Upload Data ", data.entries());
+
+    for (const value of data.values()) {
+      console.log(value);
+    }
+
     axios
       .post("http://localhost:5000/lectures/localupload", data, {
         onUploadProgress: ProgressEvent => {
@@ -188,19 +252,19 @@ export default class Upload extends Component {
     return (
       <div>
         <NavBar />
-        <div class="container">
+        <div class="container-fluid">
           <div class="row" style={{ marginTop: "30px" }}>
             <div class="offset-md-3 col-md-6">
               <form
-                action="lectures/localupload"
-                method="POST"
+                id="mainForm"
                 encType="multipart/form-data"
               >
-                <h1 className="h3 mb-3 font-weight-normal">Upload Video</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Add Lecture</h1>
                 <div class="form-group files">
                   <div className="form-group">
                     <label>Course Name </label>
                     <select
+                      required
                       className="form-control"
                       name="course"
                       id="ada"
@@ -208,45 +272,103 @@ export default class Upload extends Component {
                       onClick={this.onChangeCourse}
                       value={this.state.course}
                     >
+                      <option value="">Pleace Select ...</option>
                       {this.CourseList()}
                     </select>
                     <p>{message2}</p>
-                  </div>
-                  <div className="form-group">
-                    <label>Video Title </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={this.state.title}
-                      onChange={this.onChangeTitle}
-                    />
                   </div>
 
                   <div className="form-group">
                     <label>Lecture Type </label>
                     <select
-                      className="form-control"
                       name="lectureType"
+                      className="form-control"
                       id="lectureType"
+                      required
                       onChange={this.onChangeLectureType}
                       onClick={this.onChangeLectureType}
                       value={this.state.lectureType}
                     >
-                      <option selected value="video"> Video </option>
+                      <option value="">Pleace Select ...</option>
+                      <option value="video"> Video </option>
                       <option value="text">Text</option>
                       <option value="quiz">Quiz</option>
                     </select>
                     <p>{message3}</p>
                   </div>
 
-                  <label>Upload Your File </label>
-                  <input
-                    type="file"
-                    name="file"
-                    class="form-control"
-                    multiple
-                    onChange={this.onChangeHandler}
-                  />
+                  {
+                    this.state.lectureType === "video" &&
+                    <>
+                      <div className="form-group">
+                        <label>Video Title </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={this.state.title}
+                          onChange={this.onChangeTitle}
+                        />
+                      </div>
+
+                      <label>Upload Video </label>
+                      <input
+                        type="file"
+                        name="file"
+                        class="form-control"
+                        multiple
+                        onChange={this.onChangeHandler}
+                      />
+                    </>
+                  }
+
+                  {
+                    this.state.lectureType === "text" &&
+                    <>
+                      <div className="form-group">
+                        <label>Lecture Title </label>
+                        <input
+                          required
+                          type="text"
+                          className="form-control"
+                          value={this.state.title}
+                          onChange={this.onChangeTitle}
+                        />
+                      </div>
+
+                      <label>Full Lecture</label>
+                      <textarea
+                        required
+                        type="text"
+                        name="lectureText"
+                        class="form-control"
+                        rows="10" cols="50"
+                        onChange={this.onLectureChangeHandler}
+                      />
+                    </>
+                  }
+
+                  {
+                    this.state.lectureType === "quiz" &&
+                    <>
+                      <div className="form-group">
+                        <label>Quiz Title </label>
+                        <input
+                          required
+                          type="text"
+                          className="form-control"
+                          value={this.state.title}
+                          onChange={this.onChangeTitle}
+                        />
+                      </div>
+
+                      <label>Quiz Input</label>
+                      <AddQuiz props={this} />
+                    </>
+                  }
+
+
+
+
                 </div>
                 <div class="form-group">
                   <ToastContainer />
@@ -254,25 +376,38 @@ export default class Upload extends Component {
                     {Math.round(this.state.loaded, 2)}%
                   </Progress>
                 </div>
-                <h3 style={{ textAlign: "center" }}> OR </h3>
-                <div className="form-group">
-                  <label>Add YouTube Video URL </label>
-                  <input
-                    type="text"
-                    placeholder="ex: https://www.youtube.com/embed/yO7Q3YWzY"
-                    className="form-control"
-                    value={this.state.youtubelink}
-                    onChange={this.onChangeYouTubeLink}
-                  />
-                </div>
+
+                {
+                  this.state.lectureType === "video" &&
+                  <>
+                    <h3 style={{ textAlign: "center" }}> OR </h3>
+                    <div className="form-group">
+                      <label>Add YouTube Video URL </label>
+                      <input
+                        type="text"
+                        placeholder="ex: https://www.youtube.com/embed/yO7Q3YWzY"
+                        className="form-control"
+                        value={this.state.youtubelink}
+                        onChange={this.onChangeYouTubeLink}
+                      />
+                    </div>
+                  </>
+
+
+                }
+
                 <button
-                  type="button"
-                  class="btn btn-success btn-block"
+                  form="mainForm"
+                  type="submit"
+                  className="btn btn-success btn-block"
                   onClick={this.onClickHandler}
+                  name="Submit"
                 >
                   Submit
                 </button>
+
               </form>
+
             </div>
           </div>
         </div>

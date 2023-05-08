@@ -141,11 +141,11 @@ class BlogDetailsLeftSidebar extends Component {
         <div className="page-wrapper section-space--inner--120">
           {/*Projects section start*/}
           <div className="project-section">
-            <div className="container">
+            <div className="container-fluid">
               {/* <SearchBar onFormSubmit={this.onTextSubmit} /> */}
               <div className="row">
                 <div className="col-12 section-space--bottom--40">
-                  <div className="ui container">
+                  <div className="ui container-fluid">
                     <div className="ui grid">
                       <div className="ui row">
                         <div className="eleven wide column">
