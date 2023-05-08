@@ -55,6 +55,9 @@ import AddEducation from "./components/add-credentials/AddEducation";
 import Profile from "./components/profile/Profile";
 import FinalDashboard from "./components/FinalDashboard";
 import FinalProfiles from "./components/FinalProfiles";
+import PrivateRouteAdmin from './components/common/PrivateRouteAdmin';
+
+import { ToastContainer, toast } from "react-toastify";
 
 //check for token  to avoid state destroy on reload
 if (localStorage.jwtToken) {
@@ -82,6 +85,7 @@ if (localStorage.jwtToken) {
 function App() {
   return (
     <div className="App">
+      <ToastContainer />
       <Provider store={store}>
         <BrowserRouter basename={"/"}>
           <Switch>
@@ -168,57 +172,57 @@ function App() {
               path={`${process.env.PUBLIC_URL}/register/:role`}
               component={Register}
             />
-            <PrivateRoute
+            <PrivateRouteAdmin
               exact
               path={`${process.env.PUBLIC_URL}/allusers`}
               component={UserList}
             />
-            <PrivateRoute
+            <PrivateRouteAdmin
               exact
               path={`${process.env.PUBLIC_URL}/users/create`}
               component={CreateUser}
             />
-            <PrivateRoute
+            <PrivateRouteAdmin
               exact
               path={`${process.env.PUBLIC_URL}/allusers/edit/:id`}
               component={EditUser}
             />
-            <PrivateRoute
+            <PrivateRouteAdmin
               exact
               path={`${process.env.PUBLIC_URL}/dashboard`}
               component={Dashboard}
             />
-            <Route
+            <PrivateRouteAdmin
               exact
               path={`${process.env.PUBLIC_URL}/createEnrollAdmin`}
               component={CreateEnrollAdmin}
             />
-            <Route
+            <PrivateRouteAdmin
               exact
               path={`${process.env.PUBLIC_URL}/EnrollmentList`}
               component={EnrollmentList}
             />
-            <Route
+            <PrivateRouteAdmin
               exact
               path={`${process.env.PUBLIC_URL}/ShowCourseList`}
               component={ShowCourseList}
             />
-            <Route
+            <PrivateRouteAdmin
               exact
               path={`${process.env.PUBLIC_URL}/ShowCategoryList`}
               component={ShowCategoryList}
             />
-            <Route
+            <PrivateRouteAdmin
               exact
               path={`${process.env.PUBLIC_URL}/ShowCourseList/edit/:id`}
               component={EditCourseList}
             />
-            <Route
+            <PrivateRouteAdmin
               exact
               path={`${process.env.PUBLIC_URL}/ShowCategoryList/edit/:id`}
               component={EditCategoryList}
             />
-            <Route
+            <PrivateRouteAdmin
               exact
               path={`${process.env.PUBLIC_URL}/CreateCategoryAdmin`}
               component={CreateCategoryAdmin}

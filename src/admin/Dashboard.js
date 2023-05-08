@@ -177,27 +177,27 @@ class Dashboard extends Component {
 
 				<div className='container'>
 
-					<h3 className="text-center mt-2"> Welcome to Dashboard </h3>
+					{/* <h3 className="text-center mt-2"> Welcome to Dashboard </h3> */}
 
-					{/* <tr className='row'>
+					<tr className='row'>
 						<th className="col-md-6">
 							<CanvasJSChart options={options1}
-							
+
 							/>
 						</th>
 						<th className="col-md-6">
 							<CanvasJSChart options={options3}
-							
+
 							/>
 						</th>
-					</tr> */}
+					</tr>
 					<br></br>
-					{/* <div className="row">
+					<div className="row">
 						<CanvasJSChart options={options2}
-						
+
 						/>
-						
-					</div> */}
+
+					</div>
 				</div>
 			</div>
 		);

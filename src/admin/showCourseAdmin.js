@@ -24,7 +24,7 @@ export default class UserList extends Component {
       .then(response => {
         this.setState({ todos: response.data });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -42,7 +42,7 @@ export default class UserList extends Component {
         toast.error("Course not deleted");
       });
     setTimeout(
-      function() {
+      function () {
         //Start the timer
         window.location.reload(); //After 1 second, set render to true
       }.bind(this),
@@ -66,10 +66,10 @@ export default class UserList extends Component {
     const Todo = props => (
       <div style={divStyle}>
         <tr>
-          <td>{props.todo.courseName}</td>
-          <td>{props.todo.courseDescription}</td>
-          <td>{props.todo.instructor.email}</td>
-          <td>{props.todo.category.categoryName}</td>
+          <td>{props.todo && props.todo.courseName}</td>
+          <td>{props.todo && props.todo.courseDescription}</td>
+          <td>{props.todo && props.todo.instructor && props.todo.instructor.email && props.todo.instructor.email}</td>
+          <td>{props.todo && props.todo.category && props.todo.category.categoryName}</td>
           <td>
             {/* <Link to={"users/edit/"+props.todo._id}>Edit</Link> */}
             {/* <button className="button muted-button" class="btn btn-success"><Link to={"users/edit/"+props.todo._id}>Edit</Link></button> */}
@@ -150,7 +150,7 @@ export default class UserList extends Component {
             <ToastContainer />
             <tbody>
               {/* displaying data coming  */}
-              {filteredusers.map(function(currentTodo, i) {
+              {filteredusers.map(function (currentTodo, i) {
                 return <Todo todo={currentTodo} key={i} />;
               })}
             </tbody>
