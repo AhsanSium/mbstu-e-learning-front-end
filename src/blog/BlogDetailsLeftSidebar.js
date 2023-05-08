@@ -148,11 +148,11 @@ class BlogDetailsLeftSidebar extends Component {
                   <div className="ui container-fluid">
                     <div className="ui grid">
                       <div className="ui row">
-                        <div className="eleven wide column">
+                        <div className="col-lg-9 col-md-12">
                           <VideoDetail video={this.state.selectedVideo} />
                         </div>
 
-                        <div className="five wide column">
+                        <div className="col-lg-3 col-md-12 mt-5 mt-lg-0">
                           <VideoList
                             onVideoSelect={this.onVideoSelect}
                             videos={this.state.videos}

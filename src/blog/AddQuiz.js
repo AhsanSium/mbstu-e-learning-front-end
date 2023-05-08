@@ -62,6 +62,13 @@ const AddQuiz = ({ props }) => {
 
     }
 
+    const deleteQuizFromState = (id) => {
+        setMcq((oldArray) => {
+            return oldArray.filter((i) => i.no !== id);
+        })
+        toast.info("Quiz Removed");
+    }
+
 
 
     return (
@@ -96,16 +103,26 @@ const AddQuiz = ({ props }) => {
                         mcq.length > 0 && mcq.map((single) => {
                             return (
                                 <div className='col-lg-3 col-md-4 col-sm-6 mt-2' key={single.no} >
-                                    <h6 className='h6'> {single.question} </h6>
+                                    {/* <div className='d-flex justify-content-between'>
+                                        <span className='h6'>{single.question}</span>
+                                        <span style={{ cursor: 'pointer' }} className='btn-danger px-2' onClick={() => deleteQuizFromState(single.no)}>{"×"}</span>
+                                    </div> */}
                                     <ul className='list-group'>
+                                        <li className='h6 list-group-item'>{single.question}</li>
+                                        <li className='list-group-item'><span style={{ cursor: 'pointer' }} className='w-100 btn-danger px-2' onClick={() => deleteQuizFromState(single.no)}>{"×"}</span></li>
+
                                         {
                                             single.choices.map(s => {
-                                                return (<li className='list-group-item' key={s}> {s}</li>)
+                                                return (<li className='list-group-item' key={s}> {single.choices.indexOf(s) + 1} {": "} {s}</li>)
                                             })
                                         }
 
+                                        <li className='list-group-item'>
+                                            <strong>Correct Answer:</strong>
+                                            <br />
+                                            {single.correctAnswer}
+                                        </li>
                                     </ul>
-                                    <p> Correct Answer: {single.correctAnswer}</p>
                                 </div>
                             )
                         })

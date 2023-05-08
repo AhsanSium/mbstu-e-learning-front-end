@@ -95,14 +95,21 @@ class Dashboard extends Component {
 			})
 	}
 
+	// postFirstAdmin() {
+	// 	axios.post('http://localhost:5000/role/add', { no: 1, name: "test2@gmail.com" })
+	// 		.then(res => {
+	// 			console.log(res.data);
+	// 		})
+	// 		.catch(err => console.log(err));
+	// }
+
 
 
 	componentDidMount() {
 
 		this.getCoursedata()
 		this.getEnrollmentdata()
-
-
+		//this.postFirstAdmin()
 	}
 
 
