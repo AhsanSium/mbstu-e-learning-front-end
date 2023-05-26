@@ -60,6 +60,8 @@ import PrivateRouteAdmin from './components/common/PrivateRouteAdmin';
 import { ToastContainer, toast } from "react-toastify";
 import ChatComponent from './blog/ChatComponent';
 
+import chatImage from "../public/assets/img/icons/chat3.png";
+
 //check for token  to avoid state destroy on reload
 if (localStorage.jwtToken) {
   //set auth token header auth
@@ -288,6 +290,9 @@ function App() {
           </Switch>
         </BrowserRouter>
       </Provider>
+      <a href={`${process.env.PUBLIC_URL}/chat-room`}>
+        <img src={chatImage} style={{ zIndex: '10', position: 'fixed', bottom: '25px', right: '25px', width: '80px', height: '80px' }} />
+      </a>
     </div>
   );
 }
