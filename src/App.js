@@ -58,6 +58,7 @@ import FinalProfiles from "./components/FinalProfiles";
 import PrivateRouteAdmin from './components/common/PrivateRouteAdmin';
 
 import { ToastContainer, toast } from "react-toastify";
+import ChatComponent from './blog/ChatComponent';
 
 //check for token  to avoid state destroy on reload
 if (localStorage.jwtToken) {
@@ -241,6 +242,11 @@ function App() {
               exact
               path={`${process.env.PUBLIC_URL}/404`}
               component={PageNotFound}
+            />
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/chat-room`}
+              component={ChatComponent}
             />
             <PrivateRoute
               exact
