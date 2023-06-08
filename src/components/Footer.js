@@ -15,7 +15,7 @@ class Footer extends Component {
                       {/* footer intro wrapper */}
                       <div className="footer-intro-wrapper">
                         <div className="footer-logo">
-                          <a href={`${process.env.PUBLIC_URL}/home-two`}>
+                          <a href={`${process.env.PUBLIC_URL}/`}>
                             <div className="logoHead">
                               <img
                                 src="/assets/img/logo/logonew.png"
@@ -27,7 +27,7 @@ class Footer extends Component {
                           </a>
                         </div>
                         <div className="footer-desc">
-                        MBSTU E-learning has helped hundreds of students level up and level set their technical skills.
+                          MBSTU E-learning has helped hundreds of students level up and level set their technical skills.
                         </div>
                       </div>
                     </div>
@@ -93,7 +93,7 @@ class Footer extends Component {
                         <h4 className="footer-widget__title">CONTACT US</h4>
                         <div className="footer-widget__content">
                           <p className="address">
-                          Santosh, Tangail, 1902, Bangladesh.
+                            Santosh, Tangail, 1902, Bangladesh.
                           </p>
                           <ul className="contact-details">
                             <li>

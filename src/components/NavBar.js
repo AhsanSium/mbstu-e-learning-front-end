@@ -49,7 +49,7 @@ class NavBar extends Component {
                           style={{ width: "100%" }}
                         >
                           <nav className="main-nav">
-                            <a href={`${process.env.PUBLIC_URL}/home-two`}>
+                            <a href={`${process.env.PUBLIC_URL}/`}>
                               <div className="logoHead">
                                 <img
                                   src="/assets/img/logo/logonew.png"
@@ -245,7 +245,7 @@ class NavBar extends Component {
                         style={{ width: "100%" }}
                       >
                         <nav className="main-nav">
-                          <a href={`${process.env.PUBLIC_URL}/home-two`}>
+                          <a href={`${process.env.PUBLIC_URL}/`}>
                             <div className="logoHead">
                               <img
                                 src="/assets/img/logo/logonew.png"
@@ -258,8 +258,14 @@ class NavBar extends Component {
 
                           <ul id="main-nav-ul">
                             <li>
-                              <a href={`${process.env.PUBLIC_URL}/home-two`}>
+                              <a href={`${process.env.PUBLIC_URL}/`}>
                                 HOME
+                              </a>
+                            </li>
+                            <li>
+                              {" "}
+                              <a href={`${process.env.PUBLIC_URL}/blog`}>
+                                BLOG
                               </a>
                             </li>
                             <li>
@@ -291,15 +297,15 @@ class NavBar extends Component {
                             }}
                           >
                             <li className="has-children has-children--multilevel-submenu">
-                              <a href={`${process.env.PUBLIC_URL}/home-two`}>
+                              <a href={`${process.env.PUBLIC_URL}/`}>
                                 HOME
                               </a>
                               <ul className="submenu">
                                 <li>
                                   <a
-                                    href={`${process.env.PUBLIC_URL}/home-two`}
+                                    href={`${process.env.PUBLIC_URL}/`}
                                   >
-                                    Homepage Two
+                                    Home
                                   </a>
                                 </li>
                               </ul>
@@ -310,9 +316,14 @@ class NavBar extends Component {
                               </a>
                             </li>
                             <li>
+                              <a href={`${process.env.PUBLIC_URL}/about-us`}>
+                                CONTACT
+                              </a>
+                            </li>
+                            <li>
                               {" "}
-                              <a herf=" http://localhost:5000/hostname/:id">
-                                image
+                              <a href={`${process.env.PUBLIC_URL}/blog`}>
+                                BLOG
                               </a>
                             </li>
 

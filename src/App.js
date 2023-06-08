@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import "./index.scss";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomeTwo from "./components/HomeTwo";
@@ -6,12 +6,13 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NoMAtch from "./pages/404";
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
+//import ReactDOM from "react-dom";
 import "./index.scss";
 import store from "./store";
 import { Provider } from "react-redux";
 import setAuthToken from "./utils/setAuthToken";
 import jwt_decode from "jwt-decode";
+import axios from 'axios';
 
 import Login from "./auth/Login";
 import Register from "./auth/Register";
@@ -39,12 +40,12 @@ import AddCourse from "./blog/AddCourse";
 import AddLecture from "./blog/Addlecture";
 import BlogDetailsLeftSidebar from "./blog/BlogDetailsLeftSidebar";
 import PageNotFound from "./pages/404";
-import * as serviceWorker from "./serviceWorker";
+//import * as serviceWorker from "./serviceWorker";
 
 import PrivateRoute from "./components/common/PrivateRoute";
 //actions
 import { setCurrentUser, logoutUser } from "./actions/authActions";
-import { clearCurrentProfile } from "./actions/profileActions";
+//import { clearCurrentProfile } from "./actions/profileActions";
 
 //profile stuff
 
@@ -59,8 +60,13 @@ import PrivateRouteAdmin from './components/common/PrivateRouteAdmin';
 
 import { ToastContainer, toast } from "react-toastify";
 import ChatComponent from './blog/ChatComponent';
+import Posts from './components/Posts/Posts';
+import SinglePost from './components/Posts/SinglePost/SinglePost';
 
 import chatImage from "../public/assets/img/icons/chat3.png";
+import CreatePost from "./components/Posts/CreatePost/CreatePost.jsx";
+
+axios.defaults.baseURL = 'http://localhost:5000';
 
 //check for token  to avoid state destroy on reload
 if (localStorage.jwtToken) {
@@ -71,6 +77,8 @@ if (localStorage.jwtToken) {
   //set user and isauthenticated
   //we can call any action using below method
   store.dispatch(setCurrentUser(decoded));
+
+  //console.log("Decoded Token", decoded);
 
   //check for expired token
   const currentTime = Date.now() / 1000;
@@ -98,11 +106,11 @@ function App() {
               component={HomeTwo}
             />
 
-            <Route
+            {/* <Route
               exact
               path={`${process.env.PUBLIC_URL}/home-two`}
               component={HomeTwo}
-            />
+            /> */}
 
             <Route
               exact
@@ -265,16 +273,34 @@ function App() {
               path={`${process.env.PUBLIC_URL}/edit-profile`}
               component={EditProfile}
             />
+
             <PrivateRoute
               exact
               path={`${process.env.PUBLIC_URL}/add-experience`}
               component={AddExperience}
             />
 
+            <PrivateRoute
+              exact
+              path={`${process.env.PUBLIC_URL}/blog/create-post`}
+              component={CreatePost}
+            />
+
             <Route
               exact
               path={`${process.env.PUBLIC_URL}/finalprofiles`}
               component={FinalProfiles}
+            />
+
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/blog`}
+              component={Posts}
+            />
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/post/:id`}
+              component={SinglePost}
             />
             <Route
               exact

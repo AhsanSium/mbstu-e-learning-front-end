@@ -42,7 +42,7 @@ class Login extends Component {
         this.props.history.push("/dashboard");
       }
       else {
-        this.props.history.push("/home-two");
+        this.props.history.push("/");
       }
     }
 
