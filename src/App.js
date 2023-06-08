@@ -65,6 +65,7 @@ import SinglePost from './components/Posts/SinglePost/SinglePost';
 
 import chatImage from "../public/assets/img/icons/chat3.png";
 import CreatePost from "./components/Posts/CreatePost/CreatePost.jsx";
+import VideoChat from "./components/VideoChat";
 
 axios.defaults.baseURL = 'http://localhost:5000';
 
@@ -307,6 +308,13 @@ function App() {
               path={`${process.env.PUBLIC_URL}/profile/:handle`}
               component={Profile}
             />
+
+            <Route
+              exact
+              path={`${process.env.PUBLIC_URL}/video-chat`}
+              component={VideoChat}
+            />
+
             <PrivateRoute
               exact
               path={`${process.env.PUBLIC_URL}/add-education`}
