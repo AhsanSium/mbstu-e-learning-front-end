@@ -7,26 +7,27 @@ class Sidebar extends Component {
     super(props);
     // initialize the state with an empty todos array
     this.state = {
-    Courses:[]}
-   
-}
+      Courses: []
+    }
+
+  }
 
   componentDidMount() {
     //to get data from mongo link
     let user = JSON.parse(localStorage.getItem('userid'));
-    axios.get('http://localhost:5000/coursebyinstructor?id='+user)
-        .then(response => {
-            this.setState({ Courses: response.data });
-            console.log(user);
+    axios.get('https://mbstu-e-learning-back-end.vercel.app/coursebyinstructor?id=' + user)
+      .then(response => {
+        this.setState({ Courses: response.data });
+        console.log(user);
 
-        })
-        .catch(function (error){
-            console.log(error);
-        })
-      
-      
-}
- 
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+
+
+  }
+
 
   render() {
     /* sidebar category */
@@ -39,7 +40,7 @@ class Sidebar extends Component {
         </li>
       );
     });
-   
+
     // let categoryData = [
     //   { categoryLink: "blog-left-sidebar", categoryName: courseList[0] },
     //   { categoryLink: "blog-left-sidebar", categoryName: "Mobile Apps" },

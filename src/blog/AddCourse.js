@@ -28,7 +28,7 @@ export default class AddCourse extends Component {
   componentDidMount() {
     //to get data from mongo link
     axios
-      .get("http://localhost:5000/categories/")
+      .get("https://mbstu-e-learning-back-end.vercel.app/categories/")
       .then(response => {
         // console.log(response.data);
         this.setState({
@@ -36,13 +36,13 @@ export default class AddCourse extends Component {
           category: response.data[0].categoryName
         });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
 
   CatList() {
-    return this.state.todos.map(function(currentTodo, i) {
+    return this.state.todos.map(function (currentTodo, i) {
       //  console.log(currentTodo.categoryName)
       return <ShowCat todo={currentTodo} key={i} />;
     });
@@ -82,7 +82,7 @@ export default class AddCourse extends Component {
       // todo_completed: this.state.todo_completed
     };
     axios
-      .post("http://localhost:5000/course/add", newTodo)
+      .post("https://mbstu-e-learning-back-end.vercel.app/course/add", newTodo)
 
       .then(result => {
         this.props.history.push("/add-lecture/" + this.props.match.params.id);

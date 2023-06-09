@@ -13,11 +13,11 @@ export default class CatEdit extends Component {
   // To retrieve the todos data from the database --> use the componentDidMount lifecycle method
   componentDidMount() {
     axios
-      .get("http://localhost:5000/category?id=" + this.props.match.params.id)
+      .get("https://mbstu-e-learning-back-end.vercel.app/category?id=" + this.props.match.params.id)
       .then(response => {
         this.setState({ todos: response.data });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -44,7 +44,7 @@ export default class CatEdit extends Component {
     const { no, categoryName } = this.state.todos;
     console.log(this.state.todos);
     axios
-      .put("http://localhost:5000/category?id=" + this.props.match.params.id, {
+      .put("https://mbstu-e-learning-back-end.vercel.app/category?id=" + this.props.match.params.id, {
         no,
         categoryName
       })

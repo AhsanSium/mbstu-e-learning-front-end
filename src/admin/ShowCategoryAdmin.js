@@ -22,11 +22,11 @@ export default class ShowCategory extends Component {
   componentDidMount() {
     //to get data from mongo link
     axios
-      .get("http://localhost:5000/categories/")
+      .get("https://mbstu-e-learning-back-end.vercel.app/categories/")
       .then(response => {
         this.setState({ todos: response.data });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -34,7 +34,7 @@ export default class ShowCategory extends Component {
   delete(id) {
     console.log(id);
     axios
-      .delete("http://localhost:5000/category?id=" + id)
+      .delete("https://mbstu-e-learning-back-end.vercel.app/category?id=" + id)
       .then(result => {
         // this.forceUpdate()
         // this.props.history.push("/showcategory/")
@@ -45,7 +45,7 @@ export default class ShowCategory extends Component {
         toast.error("Category not deleted");
       });
     setTimeout(
-      function() {
+      function () {
         //Start the timer
         window.location.reload(); //After 1 second, set render to true
       }.bind(this),
@@ -140,7 +140,7 @@ export default class ShowCategory extends Component {
             <ToastContainer />
             <tbody>
               {/* displaying data coming  */}
-              {filteredusers.map(function(currentTodo, i) {
+              {filteredusers.map(function (currentTodo, i) {
                 return <Todo todo={currentTodo} key={i} />;
               })}
             </tbody>

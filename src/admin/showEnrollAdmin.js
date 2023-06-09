@@ -22,11 +22,11 @@ export default class EnrollList extends Component {
   componentDidMount() {
     //to get data from mongo link
     axios
-      .get("http://localhost:5000/enrollments/")
+      .get("https://mbstu-e-learning-back-end.vercel.app/enrollments/")
       .then(response => {
         this.setState({ todos: response.data });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -34,7 +34,7 @@ export default class EnrollList extends Component {
   delete(id) {
     console.log(id);
     axios
-      .delete("http://localhost:5000/enrollment?id=" + id)
+      .delete("https://mbstu-e-learning-back-end.vercel.app/enrollment?id=" + id)
       .then(result => {
         // this.forceUpdate()
 
@@ -47,7 +47,7 @@ export default class EnrollList extends Component {
       });
 
     setTimeout(
-      function() {
+      function () {
         window.location.reload();
       }.bind(this),
       1300
@@ -146,7 +146,7 @@ export default class EnrollList extends Component {
             </thead>
             <tbody>
               {/* displaying data coming  */}
-              {filteredusers.map(function(currentTodo, i) {
+              {filteredusers.map(function (currentTodo, i) {
                 return <Todo todo={currentTodo} key={i} />;
               })}
             </tbody>

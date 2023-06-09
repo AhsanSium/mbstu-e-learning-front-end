@@ -4,9 +4,9 @@ import axios from 'axios';
 
 const ShowRole = props => (
     <option key={props.todo.name} value={props.todo.name}>{props.todo.name}</option>
-    
-            
-  );
+
+
+);
 
 export default class CreateUser extends Component {
     constructor(props) {
@@ -18,8 +18,8 @@ export default class CreateUser extends Component {
             last_name: '',
             email: '',
             password: '',
-            role:'admin',
-            Roles:[]
+            role: 'admin',
+            Roles: []
         };
 
         /** Ensure to bind our methods to this by adding them here **/
@@ -27,29 +27,29 @@ export default class CreateUser extends Component {
         this.onChangeLastName = this.onChangeLastName.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
-        this.onChangeRole=this.onChangeRole.bind(this);
+        this.onChangeRole = this.onChangeRole.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
     componentDidMount() {
-       
-        
 
-            axios.get('http://localhost:5000/showroles/')
+
+
+        axios.get('https://mbstu-e-learning-back-end.vercel.app/showroles/')
             .then(response => {
                 this.setState({ Roles: response.data });
             })
-            .catch(function (error){
+            .catch(function (error) {
                 console.log(error);
             })
-        
+
     }
 
     RoleList() {
-        return this.state.Roles.map(function(currentTodo, i){
+        return this.state.Roles.map(function (currentTodo, i) {
             //  console.log(currentTodo.categoryName)
             return <ShowRole todo={currentTodo} key={i} />;
-  
+
         })
     }
     /** Methods which can be used to update the state properties **/
@@ -100,102 +100,102 @@ export default class CreateUser extends Component {
             todo_completed: this.state.todo_completed
         };
 
-        axios.post('http://localhost:5000/user/', newTodo)
-        .then((result) => {
-            this.props.history.push("/allusers/")
-          });
+        axios.post('https://mbstu-e-learning-back-end.vercel.app/user/', newTodo)
+            .then((result) => {
+                this.props.history.push("/allusers/")
+            });
 
         // Reset the Values.
         this.setState({
             first_name: '',
             last_name: '',
             email: '',
-            password:'',
-            role:'admin',
+            password: '',
+            role: 'admin',
             todo_completed: false
         })
     }
 
     // JSX code which is needed to display the form
     render() {
-        var message='You selected '+this.state.role
+        var message = 'You selected ' + this.state.role
         return (
             <div>
                 <NavBar />
-            
-        <div className="container">
-    <div className="row">
-        <div className="col-md-6 mt-5 mx-auto">
-            <form onSubmit={this.onSubmit} >
-                {/* <Link to="/" className="btn btn-light">Go Back</Link>
+
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6 mt-5 mx-auto">
+                            <form onSubmit={this.onSubmit} >
+                                {/* <Link to="/" className="btn btn-light">Go Back</Link>
                 <br/>
                 <br/> */}
-                <h1 className="h3 mb-3 font-weight-bold" style={{textDecoration:"underline"}}>Create New User</h1>
-                <div className="form-group">
-                    <label>First Name</label>
-                    <input type="text"
-                        className="form-control"
-                        value={this.state.first_name}
-                        onChange={this.onChangeFirstName}
-                        />
+                                <h1 className="h3 mb-3 font-weight-bold" style={{ textDecoration: "underline" }}>Create New User</h1>
+                                <div className="form-group">
+                                    <label>First Name</label>
+                                    <input type="text"
+                                        className="form-control"
+                                        value={this.state.first_name}
+                                        onChange={this.onChangeFirstName}
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label>Last Name:</label>
+                                    <input type="text"
+                                        className="form-control"
+                                        value={this.state.last_name}
+                                        onChange={this.onChangeLastName}
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label>Email:</label>
+                                    <input type="text"
+                                        className="form-control"
+                                        value={this.state.email}
+                                        onChange={this.onChangeEmail}
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label>Password:</label>
+                                    <input type="text"
+                                        className="form-control"
+                                        value={this.state.password}
+                                        onChange={this.onChangePassword}
+                                    />
+                                </div>
+
+                                <div>
+
+
+                                    <label>Role: </label>
+                                    <br />
+
+                                    <select
+                                        style={{ width: "100%", padding: "10px", border: "1px solid lightgray", borderRadius: "5px" }}
+                                        name="role"
+                                        id="ada"
+                                        onChange={this.onChangeRole}
+                                        value={this.state.role}
+                                    >
+                                        {this.RoleList()}
+                                        {/* <option value="Mobile Development">Android Development</option> */}
+
+                                    </select>
+
+                                </div>
+
+                                <br />
+
+                                <input type="submit" value="Add User" className="btn btn-lg btn-info btn-info btn-block" />
+                            </form>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div className="form-group">
-                    <label>Last Name:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={this.state.last_name}
-                        onChange={this.onChangeLastName}
-                        />
-                </div>
-
-                <div className="form-group">
-                    <label>Email:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={this.state.email}
-                        onChange={this.onChangeEmail}
-                        />
-                </div>
-
-                <div className="form-group">
-                    <label>Password:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={this.state.password}
-                        onChange={this.onChangePassword}
-                        />
-                </div>
-
-                <div>
-                               
-
-                            <label>Role: </label>
-                            <br/>
-                    
-                            <select 
-                            style={{width:"100%",padding:"10px", border:"1px solid lightgray", borderRadius:"5px"}}
-                            name="role"
-                            id="ada"
-                            onChange={this.onChangeRole}
-                            value={this.state.role} 
-                            >
-                            {this.RoleList()}
-                                {/* <option value="Mobile Development">Android Development</option> */}
-                                
-                            </select>                     
-                            
-                            </div>
-                
-                <br/>
-
-                <input type="submit" value="Add User" className="btn btn-lg btn-info btn-info btn-block" />
-            </form>
-        </div>
-    </div>
-    </div>
-</div>
-        
         )
     }
 }
