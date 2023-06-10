@@ -7,6 +7,7 @@ import MobileMenu from "../components/MobileMenu";
 import axios from "axios";
 import VideoList from "./VideoList";
 import VideoDetail from "./VideoDetail";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 class BlogDetailsLeftSidebar extends Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class BlogDetailsLeftSidebar extends Component {
     };
     if (this.state.buttonclass == "btn btn-success") {
       axios
-        .post("https://mbstu-e-learning-back-end.vercel.app/enrollbystudent/add", newTodo)
+        .post("http://localhost:5000/enrollbystudent/add", newTodo)
         .then(result => {
           //this.props.history.push("/addtoplaylist/"+this.props.match.params.id)
           toast.success("Added successfully");
@@ -66,17 +67,17 @@ class BlogDetailsLeftSidebar extends Component {
     }
 
     const response = await axios
-      .get("https://mbstu-e-learning-back-end.vercel.app/lectures?id=" + this.props.match.params.id)
+      .get("http://localhost:5000/lectures?id=" + this.props.match.params.id)
       .then(result => {
         console.log(
-          "https://mbstu-e-learning-back-end.vercel.app/checkenrollment?id=" +
+          "http://localhost:5000/checkenrollment?id=" +
           this.state.user +
           "&&courseid=" +
           this.props.match.params.id
         );
         const responseEnrolled = axios
           .get(
-            "https://mbstu-e-learning-back-end.vercel.app/checkenrollment?id=" +
+            "http://localhost:5000/checkenrollment?id=" +
             this.state.user +
             "&&courseid=" +
             this.props.match.params.id
@@ -188,6 +189,14 @@ class BlogDetailsLeftSidebar extends Component {
                       onClick={this.onClick}
                     >
                       {this.state.enrolled}
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-success"
+                    >
+                      <Link to="/video-chat">
+                        Video Chat 🎥
+                      </Link>
                     </button>
                   </div>
                 </div>

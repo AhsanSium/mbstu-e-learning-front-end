@@ -18,7 +18,7 @@ class Dashboard extends Component {
 		};
 	}
 	getCoursedata() {
-		axios.get('https://mbstu-e-learning-back-end.vercel.app/courses/')
+		axios.get('http://localhost:5000/courses/')
 			.then(response => {
 
 				var dict = {};
@@ -68,7 +68,7 @@ class Dashboard extends Component {
 	}
 
 	getEnrollmentdata() {
-		axios.get('https://mbstu-e-learning-back-end.vercel.app/enrollments/')
+		axios.get('http://localhost:5000/enrollments/')
 			.then(response => {
 
 				var dict = {};
@@ -96,7 +96,7 @@ class Dashboard extends Component {
 	}
 
 	// postFirstAdmin() {
-	// 	axios.post('https://mbstu-e-learning-back-end.vercel.app/role/add', { no: 1, name: "test2@gmail.com" })
+	// 	axios.post('http://localhost:5000/role/add', { no: 1, name: "test2@gmail.com" })
 	// 		.then(res => {
 	// 			console.log(res.data);
 	// 		})

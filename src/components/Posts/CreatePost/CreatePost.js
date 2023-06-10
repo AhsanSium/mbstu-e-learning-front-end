@@ -6,8 +6,14 @@ import NavBar from '../../NavBar';
 import Footer from '../../Footer';
 import MobileMenu from '../../MobileMenu';
 import PostNav from '../PostNav';
+import { connect } from 'react-redux';
+import PropTypes from "prop-types";
+
 export class CreatePost extends Component {
     constructor(props) {
+
+        console.log("props:  ", props);
+
         super(props)
 
         this.state = {
@@ -36,9 +42,9 @@ export class CreatePost extends Component {
     }
 
     componentDidMount() {
-
+        console.log("Now Props ", this.props);
         let path = this.props.match.path;
-        let id = this.props.match.params.id;
+        let id = this.props.auth.users.id;
         //const storedData = JSON.parse(localStorage.getItem('profileData'));
         const storedData = {
             "username": "AhsanSium"
@@ -51,7 +57,7 @@ export class CreatePost extends Component {
                 isloading: true
             }))
 
-            Axios.get("api/posts/" + id).then(data => {
+            Axios.get("/api/posts/" + id).then(data => {
                 let post = data.data
                 this.setState({
                     isloading: false,
@@ -72,6 +78,8 @@ export class CreatePost extends Component {
     }
 
     imageHandler = (id, value, isValid) => {
+        console.log("Image Id ", id, "  Value  ", value);
+
         this.setState({ Post: { ...this.state.Post, [id]: value } }, () => {
 
         });
@@ -137,18 +145,19 @@ export class CreatePost extends Component {
         this.setState(pre => ({
             isloading: true
         }))
-        let path = this.props.match.path
-        let id = this.props.match.params.id
-        let date = new Date()
-        e.preventDefault()
+        let path = this.props.match.path;
+        let id = this.props.match.params.id;
+        let date = new Date();
+        e.preventDefault();
         let formData;
+        console.log(" Post Data:  ", this.state.Post);
         if (typeof (this.state.Post.imagePath) === "object") {
             formData = new FormData();
-            formData.append('id', this.state.Post.id);
+            formData.append('id', this.props.auth.users.id);
             formData.append('title', this.state.Post.title);
             formData.append('content', this.state.Post.content);
-            formData.append('image', this.state.Post.imagePath, this.state.Post.title);
             formData.append('postDate', date.toString());
+            formData.append('image', this.state.Post.imagePath, this.state.Post.title);
         }
         else {
             formData = {
@@ -159,6 +168,8 @@ export class CreatePost extends Component {
                 'postDate': date.toString()
             }
         }
+
+        //console.log("FORM DATA: ", formData, " STate:  ", this.state);
 
         if (path === "/edit/:id") {
             Axios.put("/api/posts/" + id, formData).then(data => {
@@ -178,11 +189,16 @@ export class CreatePost extends Component {
                 })
         }
         else {
-            Axios.post("/api/posts", formData).then(data => {
+
+            for (var pair of formData.entries()) {
+                console.log(pair[0] + ', ' + pair[1]);
+            }
+
+            Axios.post("/api/posts/upload", formData).then(data => {
                 this.setState(pre => ({
                     isloading: false
                 }))
-                this.props.history.push('/')
+                this.props.history.push('/blog')
             })
                 .catch(e => {
                     this.setState({
@@ -234,7 +250,8 @@ export class CreatePost extends Component {
 
                 <PostNav />
 
-                <form onSubmit={this.mySubmitHandler} className="pt-4">
+                <form onSubmit={this.mySubmitHandler} className="pt-4"
+                    enctype="multipart/form-data">
                     <h3 className="text-center mb-3">Create Post</h3>
                     <div className="form-group">
                         <label htmlFor="title">Title </label>
@@ -300,4 +317,14 @@ export class CreatePost extends Component {
     }
 }
 
-export default CreatePost
+CreatePost.propTypes = {
+    auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+export default connect(mapStateToProps)(CreatePost);
+
+

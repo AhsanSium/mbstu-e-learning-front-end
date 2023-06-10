@@ -14,7 +14,7 @@ class Services extends Component {
 
     const response = await axios
       .get(
-        "https://mbstu-e-learning-back-end.vercel.app/enrollmentbystudent?id=" +
+        "http://localhost:5000/enrollmentbystudent?id=" +
         this.props.match.params.id
       )
       .then(result => {

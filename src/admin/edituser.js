@@ -25,7 +25,7 @@ export default class UserEdit extends Component {
   // To retrieve the todos data from the database --> use the componentDidMount lifecycle method
   componentDidMount() {
 
-    axios.get('https://mbstu-e-learning-back-end.vercel.app/user?id=' + this.props.match.params.id)
+    axios.get('http://localhost:5000/user?id=' + this.props.match.params.id)
       .then(response => {
         this.setState({ todos: response.data });
       })
@@ -33,7 +33,7 @@ export default class UserEdit extends Component {
         console.log(error);
       })
 
-    axios.get('https://mbstu-e-learning-back-end.vercel.app/showroles/')
+    axios.get('http://localhost:5000/showroles/')
       .then(response => {
         this.setState({ Roles: response.data });
       })
@@ -60,7 +60,7 @@ export default class UserEdit extends Component {
 
   delete(id) {
     console.log(id);
-    axios.delete('https://mbstu-e-learning-back-end.vercel.app/user?id=' + this.props.match.params.id)
+    axios.delete('http://localhost:5000/user?id=' + this.props.match.params.id)
       .then((result) => {
         this.props.history.push("/allusers/")
       });
@@ -78,7 +78,7 @@ export default class UserEdit extends Component {
 
     const { first_name, last_name, email, password, role } = this.state.todos;
     console.log(this.state.todos)
-    axios.put('https://mbstu-e-learning-back-end.vercel.app/user?id=' + this.props.match.params.id, { first_name, last_name, email, password, role })
+    axios.put('http://localhost:5000/user?id=' + this.props.match.params.id, { first_name, last_name, email, password, role })
       .then((result) => {
         this.props.history.push("/allusers/")
       });

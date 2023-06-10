@@ -182,8 +182,14 @@ const VideoChat = ({ auth }) => {
     return (
         <div>
             <NavBar />
+            <div className="row breadcrumb-area breadcrumb-bg">
+                <div className="col">
+                    <div className="page-banner text-center">
+                        <h1>VideoChat</h1>
+                    </div>
+                </div>
+            </div>
             <div className='videoBody'>
-                <h2> VideoChat </h2>
 
                 <h3 className='h3'>1. Start your Webcam</h3>
                 <div className="videos d-flex justify-content-between">

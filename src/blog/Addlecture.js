@@ -35,7 +35,7 @@ export default class Upload extends Component {
   componentDidMount() {
     axios
       .get(
-        "https://mbstu-e-learning-back-end.vercel.app/coursebyinstructor?id=" +
+        "http://localhost:5000/coursebyinstructor?id=" +
         this.props.match.params.id
       )
       .then(response => {
@@ -221,7 +221,7 @@ export default class Upload extends Component {
     }
 
     axios
-      .post("https://mbstu-e-learning-back-end.vercel.app/lectures/localupload", data, {
+      .post("http://localhost:5000/lectures/localupload", data, {
         onUploadProgress: ProgressEvent => {
           this.setState({
             loaded: (ProgressEvent.loaded / ProgressEvent.total) * 100

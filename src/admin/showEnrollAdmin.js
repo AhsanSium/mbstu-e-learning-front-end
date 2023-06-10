@@ -22,7 +22,7 @@ export default class EnrollList extends Component {
   componentDidMount() {
     //to get data from mongo link
     axios
-      .get("https://mbstu-e-learning-back-end.vercel.app/enrollments/")
+      .get("http://localhost:5000/enrollments/")
       .then(response => {
         this.setState({ todos: response.data });
       })
@@ -34,7 +34,7 @@ export default class EnrollList extends Component {
   delete(id) {
     console.log(id);
     axios
-      .delete("https://mbstu-e-learning-back-end.vercel.app/enrollment?id=" + id)
+      .delete("http://localhost:5000/enrollment?id=" + id)
       .then(result => {
         // this.forceUpdate()
 

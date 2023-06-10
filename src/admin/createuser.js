@@ -35,7 +35,7 @@ export default class CreateUser extends Component {
 
 
 
-        axios.get('https://mbstu-e-learning-back-end.vercel.app/showroles/')
+        axios.get('http://localhost:5000/showroles/')
             .then(response => {
                 this.setState({ Roles: response.data });
             })
@@ -100,7 +100,7 @@ export default class CreateUser extends Component {
             todo_completed: this.state.todo_completed
         };
 
-        axios.post('https://mbstu-e-learning-back-end.vercel.app/user/', newTodo)
+        axios.post('http://localhost:5000/user/', newTodo)
             .then((result) => {
                 this.props.history.push("/allusers/")
             });

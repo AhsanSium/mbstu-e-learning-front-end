@@ -20,7 +20,7 @@ export default class UserList extends Component {
   componentDidMount() {
     //to get data from mongo link
     axios
-      .get("https://mbstu-e-learning-back-end.vercel.app/courses/")
+      .get("http://localhost:5000/courses/")
       .then(response => {
         this.setState({ todos: response.data });
       })
@@ -31,7 +31,7 @@ export default class UserList extends Component {
   delete(id) {
     console.log(id);
     axios
-      .delete("https://mbstu-e-learning-back-end.vercel.app/course?id=" + id)
+      .delete("http://localhost:5000/course?id=" + id)
       .then(result => {
         // this.forceUpdate()
         // this.props.history.push("/showcourses/")
