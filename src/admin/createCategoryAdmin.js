@@ -42,7 +42,7 @@ export default class CreateCategory extends Component {
             // todo_completed: this.state.todo_completed
         };
 
-        axios.post('http://localhost:5000/category/add', newTodo)
+        axios.post('https://mbstu-e-learning-back-end.vercel.app/category/add', newTodo)
             .then((result) => {
                 this.props.history.push("/ShowCategoryList/")
             });

@@ -13,7 +13,7 @@ class Services extends Component {
     //this.onTextSubmit("react tutorials");
 
     const response = await axios
-      .get("http://localhost:5000/courses")
+      .get("https://mbstu-e-learning-back-end.vercel.app/courses")
       .then(result => {
         console.log(result.data[0]);
         return result;

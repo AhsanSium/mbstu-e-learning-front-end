@@ -67,7 +67,7 @@ import chatImage from "../public/assets/img/icons/chat3.png";
 import CreatePost from "./components/Posts/CreatePost/CreatePost.js";
 import VideoChat from "./components/VideoChat";
 
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = 'https://mbstu-e-learning-back-end.vercel.app';
 
 //check for token  to avoid state destroy on reload
 if (localStorage.jwtToken) {

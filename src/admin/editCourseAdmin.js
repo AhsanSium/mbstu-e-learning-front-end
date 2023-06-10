@@ -18,7 +18,7 @@ export default class EditCourse extends Component {
   }
   componentDidMount() {
 
-    axios.get('http://localhost:5000/course?id=' + this.props.match.params.id)
+    axios.get('https://mbstu-e-learning-back-end.vercel.app/course?id=' + this.props.match.params.id)
       .then(response => {
         this.setState({ todos: response.data });
       })
@@ -26,7 +26,7 @@ export default class EditCourse extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:5000/categories/')
+    axios.get('https://mbstu-e-learning-back-end.vercel.app/categories/')
       .then(response => {
         this.setState({ Cat: response.data });
       })
@@ -66,7 +66,7 @@ export default class EditCourse extends Component {
 
     const { courseName, courseDescription, category, instructor } = this.state.todos;
     console.log(this.state.todos)
-    axios.put('http://localhost:5000/course?id=' + this.state.todos._id, { courseName, courseDescription, category, instructor })
+    axios.put('https://mbstu-e-learning-back-end.vercel.app/course?id=' + this.state.todos._id, { courseName, courseDescription, category, instructor })
       .then((result) => {
         this.props.history.push("/ShowCourseList/")
       });

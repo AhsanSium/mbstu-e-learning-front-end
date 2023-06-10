@@ -45,7 +45,7 @@ class BlogDetailsLeftSidebar extends Component {
     };
     if (this.state.buttonclass == "btn btn-success") {
       axios
-        .post("http://localhost:5000/enrollbystudent/add", newTodo)
+        .post("https://mbstu-e-learning-back-end.vercel.app/enrollbystudent/add", newTodo)
         .then(result => {
           //this.props.history.push("/addtoplaylist/"+this.props.match.params.id)
           toast.success("Added successfully");
@@ -67,17 +67,17 @@ class BlogDetailsLeftSidebar extends Component {
     }
 
     const response = await axios
-      .get("http://localhost:5000/lectures?id=" + this.props.match.params.id)
+      .get("https://mbstu-e-learning-back-end.vercel.app/lectures?id=" + this.props.match.params.id)
       .then(result => {
         console.log(
-          "http://localhost:5000/checkenrollment?id=" +
+          "https://mbstu-e-learning-back-end.vercel.app/checkenrollment?id=" +
           this.state.user +
           "&&courseid=" +
           this.props.match.params.id
         );
         const responseEnrolled = axios
           .get(
-            "http://localhost:5000/checkenrollment?id=" +
+            "https://mbstu-e-learning-back-end.vercel.app/checkenrollment?id=" +
             this.state.user +
             "&&courseid=" +
             this.props.match.params.id
