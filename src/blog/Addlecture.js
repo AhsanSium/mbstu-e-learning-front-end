@@ -168,7 +168,7 @@ export default class Upload extends Component {
       }
     }
     else if (this.state.lectureType === "video") {
-      if (!this.state.selectedFile) {
+      if (!this.state.selectedFile && this.state.youtubelink === "") {
         toast.error("Please Select video before submit");
         return;
       }
