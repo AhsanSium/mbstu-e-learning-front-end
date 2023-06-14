@@ -1,10 +1,10 @@
-# MBSTU -E-Learning Front-end
+# MBSTU E-Learning Front-end
 
 The research project __“MBSTU E-Learning”__ submitted by **MD. Ahsanul Haque(CE-18039)** and **Tanvir Ahmed(CE-17051)** to the Department of Computer Science and Engineering, Mawlana Bhashani Science and Technology University, Santosh, Tangail-1902, Bangladesh has been accepted as satisfactory for the partial fulfillment of the requirements for the degree of Bachelor of Science (Engineering) in Computer Science and Engineering
 
 We, hereby declare that the work presented in this project is the outcome of the investigation performed by us under the supervision of **Mohd. Sultan Ahammad** , Assistant Professor, Dept. of Computer of Science Engineering, Mawlana Bhashani Science and Technology University
 
-Welcome to the MBSTU -E-Learning front-end project! This project is developed with React.js and provides a user-friendly interface for the e-learning platform. It includes a range of functionalities to enhance the learning experience. 
+Welcome to the MBSTU E-Learning front-end project! This project is developed with React.js and provides a user-friendly interface for the e-learning platform. It includes a range of functionalities to enhance the learning experience. 
 
 ## Prerequisites
 
