@@ -10,8 +10,8 @@ Welcome to the MBSTU -E-Learning front-end project! This project is developed wi
 
 Before running this project, make sure you have the following installed on your system:
 
-- Node.js (v12 or higher)
-- NPM (Node Package Manager)
+- Node.js (v14 works best)
+- NPM/Yarn (Node Package Manager)
 
 ## Installation
 
@@ -20,7 +20,7 @@ Before running this project, make sure you have the following installed on your 
 3. Run the following command to install the dependencies:
 
 ```shell
-npm install
+yarn install
 ```
 
 ## Configuration
@@ -34,7 +34,7 @@ Before running the application, you may need to configure some settings.
 To start the application, run the following command:
 
 ```shell
-npm start
+yarn start
 ```
 
 This will start the development server and launch the application in your default browser. The application will be available at `http://localhost:3000`.
